@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        background-color: hsl(275, 86%, 91%);
+        margin: 0;
+        padding: 0;
+        background-image: url("./assets/images/background-pattern-desktop.svg" );
+        background-repeat:repeat-x;
+      }
+
+      .main {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        background-color: azure;
+        width: 500px;
+        padding: 0 30px;
+        border-radius: 15px;
+      }
+      .card-head {
+        display: flex;
+        gap: 20px;
+        font-size: 24px;
+      }
+      .question {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+      .question:hover {
+        color: rgb(159 48 203);
+        cursor: pointer;
+      }
+      .answer {
+        color: hsl(276, 27%, 61%);
+        display: none;
+      }
+      .Q-A {
+        padding-bottom: 15px;
+      }
+      hr {
+        border-width: 0.3px;
+        border-color: rgba(201, 192, 192, 0.089);
+      }
+      .ds-block {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="card">
+        <div class="card-head">
+          <img src="./assets/images/icon-star.svg" />
+          <h1>FAQs</h1>
+        </div>
+
+        <div class="card-content">
+          <div class="Q-A">
+            <div class="question">
+              <p>What is Frontend Mentor, and how will it help me?</p>
+              <img src="./assets/images/icon-plus.svg" />
+            </div>
+            <p class="answer">
+              Frontend Mentor offers realistic coding challenges to help
+              developers improve their frontend coding skills with projects in
+              HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+              for portfolio building.
+            </p>
+          </div>
+          <hr />
+          <div class="Q-A">
+            <div class="question">
+              <p>Is Frontend Mentor free?</p>
+              <img src="./assets/images/icon-plus.svg" />
+            </div>
+            <p class="answer">
+              Yes, Frontend Mentor offers both free and premium coding
+              challenges, with the free option providing access to a range of
+              projects suitable for all skill levels.
+            </p>
+          </div>
+          <hr />
+          <div class="Q-A">
+            <div class="question">
+              <p>Can I use Frontend Mentor projects in my portfolio?</p>
+              <img src="./assets/images/icon-plus.svg" />
+            </div>
+            <p class="answer">
+              Yes, you can use projects completed on Frontend Mentor in your
+              portfolio. It's an excellent way to showcase your skills to
+              potential employers!
+            </p>
+          </div>
+          <hr />
+          <div class="Q-A">
+            <div class="question">
+              <p>
+                How can I get help if I'm stuck on a Frontend Mentor challenge?
+              </p>
+              <img src="./assets/images/icon-plus.svg" />
+            </div>
+            <p class="answer">
+              Yes, Frontend Mentor offers both free and premium coding
+              challenges, with the free option providing access to a range of
+              projects suitable for all skill levels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var qas = document.querySelectorAll(".Q-A");
+      qas.forEach(function (qa) {
+        qa.addEventListener("click", function (event) {
+          if(qa.children[1].classList.contains("ds-block")) {
+            closeAll()
+          }else{
+            closeAll()
+          qa.children[1].classList.toggle("ds-block");
+          let src = qa.children[0].children[1].src;
+          if (src.includes("plus")) {
+            
+            qa.children[0].children[1].src = "./assets/images/icon-minus.svg";
+          } else {
+            qa.children[0].children[1].src = "./assets/images/icon-plus.svg";
+     
+          }}
+        });
+      });
+      function closeAll() {
+        qas.forEach(function (qa) {
+          qa.children[1].classList.remove("ds-block");
+          let src = qa.children[0].children[1].src;
+          qa.children[0].children[1].src = "./assets/images/icon-plus.svg";
+        });
+      }
+    </script>
+  </body>
+</html>
